@@ -1,60 +1,61 @@
-2026-09-09T15:18:50Z  WARN  Reused an existing Azure session for 'vgupta@tech.caqh.org' rather than signing in again. Pass -ForceReauth to authenticate afresh.
-2026-09-09T15:18:50Z  WARN  Interactive mode grants DELEGATED permissions. Success here does not prove the unattended modes will work - application permissions are consented separately.
-2026-09-09T15:18:50Z  INFO
-2026-09-09T15:18:50Z  STEP  4. Entra ID / Microsoft Graph probes
-2026-09-09T15:18:50Z  FAIL  -    Tenant read (organization) - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: Directory.Read.All
-2026-09-09T15:18:50Z  FAIL  S2   Directory audit logs - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: AuditLog.Read.All  (Entra role: Reports Reader or Security Reader)
-2026-09-09T15:18:50Z  FAIL  S4   PIM directory role assignment schedules - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: RoleManagement.Read.Directory
-2026-09-09T15:18:50Z  FAIL  S4   PIM directory role eligibility schedules - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: RoleManagement.Read.Directory
-2026-09-09T15:18:50Z  FAIL  S8   Groups read - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: Directory.Read.All  or  Group.Read.All
-2026-09-09T15:18:50Z  FAIL  S5   Service principals read - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: Application.Read.All  or  Directory.Read.All
-2026-09-09T15:18:50Z  FAIL  S5   OAuth2 permission grants - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: Directory.Read.All
-2026-09-09T15:18:50Z  FAIL  S6   Entitlement Management access packages - Authentication needed. Please call Connect-MgGraph.
-2026-09-09T15:18:50Z  INFO        needs: EntitlementManagement.Read.All
-2026-09-09T15:18:50Z  SKIP  S8   Group pattern resolution - scope.json has no entra.groupNamePatterns
-2026-09-09T15:18:50Z  INFO
-2026-09-09T15:18:50Z  STEP  5. Azure probes
-2026-09-09T15:18:51Z  PASS  -    Azure context (vgupta@tech.caqh.org)
-2026-09-09T15:18:52Z  WARN  scope.json has no subscriptionIds. Probing one visible subscription instead (east-sharedservices-nonprod). This proves permissions work, NOT that Nexus scope is correct.
-2026-09-09T15:18:55Z  PASS  S3   Role assignments read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be)
-2026-09-09T15:18:56Z  FAIL  S1   Activity Log read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be) - Exception type: ArgumentException, Message: System.ArgumentException: Invalid StartDate '2026-09-09T14:18:55.7758803Z', since it is later than the current time '2026-09-09T10:18:56.2206896-05:00'.
-   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ValidateDateTimeRangeAndAddDefaults()
-   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ProcessGeneralParameters()
-   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ProcessParameters()
-   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ProcessRecordInternal()
-   at Microsoft.Azure.Commands.Insights.MonitorCmdletBase.ExecuteCmdlet(), Code: Null, Status code:Null, Reason phrase: Null
-2026-09-09T15:18:56Z  INFO        needs: Microsoft.Insights/eventtypes/values/read - included in Reader
-2026-09-09T15:18:56Z  PASS  S3   Custom role definitions read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be)
-2026-09-09T15:18:56Z  FAIL  -    Management group 'mg-techcaqhorg-0001' readable - The client 'vgupta@tech.caqh.org' with object id '4b9f1c7f-4549-45de-9298-e1c7cf6e8cb6' does not have authorization to perform action 'Microsoft.Management/managementGroups/read' over scope '/providers/Microsoft.Management/managementGroups/mg-techcaqhorg-0001' or the scope is invalid. If access was recently granted, please refresh your credentials.
-2026-09-09T15:18:56Z  INFO        needs: Reader at the management group scope
-2026-09-09T15:18:56Z  INFO
-2026-09-09T15:18:56Z  STEP  6. Summary
-2026-09-09T15:18:56Z  INFO  Passed: 7   Failed: 10   Warned: 0   Skipped: 1
-2026-09-09T15:18:56Z  INFO  Report: C:\Users\VineetGupta\nexus-access-review\reviews\_auth-checks\auth-check_20260909T1516Z.json
-2026-09-09T15:18:56Z  INFO
-2026-09-09T15:18:56Z  FAIL  9 required probe(s) failed. Do not run the exporters yet.
-2026-09-09T15:18:56Z  INFO    - [-] Tenant read (organization)
-2026-09-09T15:18:56Z  INFO        needs: Directory.Read.All
-2026-09-09T15:18:56Z  INFO    - [S2] Directory audit logs
-2026-09-09T15:18:56Z  INFO        needs: AuditLog.Read.All  (Entra role: Reports Reader or Security Reader)
-2026-09-09T15:18:56Z  INFO    - [S4] PIM directory role assignment schedules
-2026-09-09T15:18:56Z  INFO        needs: RoleManagement.Read.Directory
-2026-09-09T15:18:56Z  INFO    - [S4] PIM directory role eligibility schedules
-2026-09-09T15:18:56Z  INFO        needs: RoleManagement.Read.Directory
-2026-09-09T15:18:56Z  INFO    - [S8] Groups read
-2026-09-09T15:18:56Z  INFO        needs: Directory.Read.All  or  Group.Read.All
-2026-09-09T15:18:56Z  INFO    - [S5] Service principals read
-2026-09-09T15:18:56Z  INFO        needs: Application.Read.All  or  Directory.Read.All
-2026-09-09T15:18:56Z  INFO    - [S5] OAuth2 permission grants
-2026-09-09T15:18:56Z  INFO        needs: Directory.Read.All
-2026-09-09T15:18:56Z  INFO    - [S1] Activity Log read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be)
-2026-09-09T15:18:56Z  INFO        needs: Microsoft.Insights/eventtypes/values/read - included in Reader
-2026-09-09T15:18:56Z  INFO    - [-] Management group 'mg-techcaqhorg-0001' readable
-2026-09-09T15:18:56Z  INFO        needs: Reader at the management group scope
+PS C:\Users\VineetGupta\nexus-access-review\scripts> ./Export-NexusEntraAuditLog.ps1 -AuthMode interactive
+2026-09-09T17:27:41Z  STEP  S2 Entra audit log export  (Export-NexusEntraAuditLog.ps1 v0.1.0)
+2026-09-09T17:27:41Z  INFO  Review: 2026-07_2026-08
+2026-09-09T17:27:41Z  INFO  Run stamp: 20260909T1727Z
+2026-09-09T17:27:41Z  INFO  Read-only. No writes are issued to Azure or Entra ID.
+2026-09-09T17:27:41Z  INFO
+2026-09-09T17:27:41Z  STEP  1. Window and retention
+2026-09-09T17:27:41Z  INFO  Requested:        2026-07-01T05:00:00Z to 2026-09-01T04:59:59Z
+2026-09-09T17:27:41Z  INFO  Retention floor:  2026-08-10T17:27:41Z  (assuming 30 days)
+2026-09-09T17:27:41Z  WARN  Entra audit retention is a rolling 30 days. The requested start 2026-07-01 predates the retention floor 2026-08-10 by approximately 40.5 day(s). That portion of the review period is PERMANENTLY UNRECOVERABLE from this source - no archive exists. Any absence of events before the floor is a DECLARED GAP, not evidence that no changes occurred.
+2026-09-09T17:27:41Z  WARN  Only the last ~21.5 day(s) of the review period remain retrievable. Every day of delay reduces this further.
+2026-09-09T17:27:41Z  INFO
+2026-09-09T17:27:41Z  STEP  2. Connect
+2026-09-09T17:27:42Z  WARN  Reused an existing Graph session for 'vgupta@tech.caqh.org'. Its consented scopes may differ from what this project requests - check GraphScopes below.
+2026-09-09T17:27:42Z  WARN  Interactive mode grants DELEGATED permissions. Success here does not prove the unattended modes will work - application permissions are consented separately.
+2026-09-09T17:27:42Z  INFO  Identity: vgupta@tech.caqh.org  (delegated)
+2026-09-09T17:27:42Z  INFO  Graph session verified: True
+2026-09-09T17:27:42Z  INFO
+2026-09-09T17:27:42Z  STEP  4. Query directory audits
+2026-09-09T17:27:42Z  FAIL    Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:42Z  FAIL    2026-07-01T05:00:00Z to 2026-07-08T05:00:00Z : INCOMPLETE - Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:42Z  INFO    2026-07-01 to 2026-07-08: 0 returned, 0 retained
+2026-09-09T17:27:42Z  FAIL    Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:42Z  FAIL    2026-07-08T05:00:00Z to 2026-07-15T05:00:00Z : INCOMPLETE - Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:42Z  INFO    2026-07-08 to 2026-07-15: 0 returned, 0 retained
+2026-09-09T17:27:42Z  FAIL    Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:42Z  FAIL    2026-07-15T05:00:00Z to 2026-07-22T05:00:00Z : INCOMPLETE - Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:42Z  INFO    2026-07-15 to 2026-07-22: 0 returned, 0 retained
+2026-09-09T17:27:43Z  FAIL    Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:43Z  FAIL    2026-07-22T05:00:00Z to 2026-07-29T05:00:00Z : INCOMPLETE - Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:43Z  INFO    2026-07-22 to 2026-07-29: 0 returned, 0 retained
+2026-09-09T17:27:44Z  FAIL    Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:44Z  FAIL    2026-07-29T05:00:00Z to 2026-08-05T05:00:00Z : INCOMPLETE - Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:44Z  INFO    2026-07-29 to 2026-08-05: 0 returned, 0 retained
+2026-09-09T17:27:45Z  FAIL    Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:45Z  FAIL    2026-08-05T05:00:00Z to 2026-08-12T05:00:00Z : INCOMPLETE - Page 1 failed after 1 attempt(s): Response status code does not indicate success: BadRequest (Bad Request).
+2026-09-09T17:27:45Z  INFO    2026-08-05 to 2026-08-12: 0 returned, 0 retained
+2026-09-09T17:28:33Z  INFO    2026-08-12 : 10 page(s), 10450 record(s)
+2026-09-09T17:29:04Z  INFO    2026-08-12 to 2026-08-19: 16179 returned, 3594 retained
+2026-09-09T17:29:42Z  INFO    2026-08-19 : 10 page(s), 10450 record(s)
+2026-09-09T17:29:56Z  INFO    2026-08-19 to 2026-08-26: 16601 returned, 4209 retained
+2026-09-09T17:30:16Z  INFO    2026-08-26 : 10 page(s), 9696 record(s)
+2026-09-09T17:30:19Z  INFO    2026-08-26 to 2026-09-01: 9696 returned, 2752 retained
+2026-09-09T17:30:19Z  INFO
+2026-09-09T17:30:19Z  STEP  5. Write output
+2026-09-09T17:30:25Z  INFO  Actual coverage from data: 08/12/2026 05:03:14 to 09/01/2026 04:59:10
+2026-09-09T17:30:25Z  WARN  Earliest returned event is ~42.2 day(s) after the requested start. This is the OBSERVED retention boundary, and it is the figure to report.
+2026-09-09T17:30:25Z  INFO  Manifest written: S2_entra-audit-log_20260909T1727Z.manifest.json
+2026-09-09T17:30:25Z  INFO
+2026-09-09T17:30:25Z  STEP  6. Summary
+2026-09-09T17:30:25Z  INFO  Events retained:      10555
+2026-09-09T17:30:25Z  INFO  Pages walked:         42
+2026-09-09T17:30:25Z  INFO  Throttle retries:     0
+2026-09-09T17:30:25Z  INFO  Dropped by category:  31921
+2026-09-09T17:30:25Z  INFO  Coverage:             08/12/2026 05:03:14 to 09/01/2026 04:59:10
+2026-09-09T17:30:25Z  INFO  Status:               partial
+2026-09-09T17:30:25Z  INFO  File:                 S2_entra-audit-log_20260909T1727Z.csv
+2026-09-09T17:30:25Z  INFO
+2026-09-09T17:30:25Z  WARN  Part of the review period was outside retention and is permanently unrecoverable. This is a DECLARED GAP and must appear in the review output.
+2026-09-09T17:30:25Z  WARN  Export PARTIAL. Gap recorded in the manifest and must be declared in the review output.
+PS C:\Users\VineetGupta\nexus-access-review\scripts>
