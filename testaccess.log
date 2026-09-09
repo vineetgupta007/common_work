@@ -1,0 +1,60 @@
+2026-09-09T15:18:50Z  WARN  Reused an existing Azure session for 'vgupta@tech.caqh.org' rather than signing in again. Pass -ForceReauth to authenticate afresh.
+2026-09-09T15:18:50Z  WARN  Interactive mode grants DELEGATED permissions. Success here does not prove the unattended modes will work - application permissions are consented separately.
+2026-09-09T15:18:50Z  INFO
+2026-09-09T15:18:50Z  STEP  4. Entra ID / Microsoft Graph probes
+2026-09-09T15:18:50Z  FAIL  -    Tenant read (organization) - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: Directory.Read.All
+2026-09-09T15:18:50Z  FAIL  S2   Directory audit logs - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: AuditLog.Read.All  (Entra role: Reports Reader or Security Reader)
+2026-09-09T15:18:50Z  FAIL  S4   PIM directory role assignment schedules - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: RoleManagement.Read.Directory
+2026-09-09T15:18:50Z  FAIL  S4   PIM directory role eligibility schedules - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: RoleManagement.Read.Directory
+2026-09-09T15:18:50Z  FAIL  S8   Groups read - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: Directory.Read.All  or  Group.Read.All
+2026-09-09T15:18:50Z  FAIL  S5   Service principals read - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: Application.Read.All  or  Directory.Read.All
+2026-09-09T15:18:50Z  FAIL  S5   OAuth2 permission grants - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: Directory.Read.All
+2026-09-09T15:18:50Z  FAIL  S6   Entitlement Management access packages - Authentication needed. Please call Connect-MgGraph.
+2026-09-09T15:18:50Z  INFO        needs: EntitlementManagement.Read.All
+2026-09-09T15:18:50Z  SKIP  S8   Group pattern resolution - scope.json has no entra.groupNamePatterns
+2026-09-09T15:18:50Z  INFO
+2026-09-09T15:18:50Z  STEP  5. Azure probes
+2026-09-09T15:18:51Z  PASS  -    Azure context (vgupta@tech.caqh.org)
+2026-09-09T15:18:52Z  WARN  scope.json has no subscriptionIds. Probing one visible subscription instead (east-sharedservices-nonprod). This proves permissions work, NOT that Nexus scope is correct.
+2026-09-09T15:18:55Z  PASS  S3   Role assignments read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be)
+2026-09-09T15:18:56Z  FAIL  S1   Activity Log read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be) - Exception type: ArgumentException, Message: System.ArgumentException: Invalid StartDate '2026-09-09T14:18:55.7758803Z', since it is later than the current time '2026-09-09T10:18:56.2206896-05:00'.
+   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ValidateDateTimeRangeAndAddDefaults()
+   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ProcessGeneralParameters()
+   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ProcessParameters()
+   at Microsoft.Azure.Commands.Insights.LogsCmdletBase.ProcessRecordInternal()
+   at Microsoft.Azure.Commands.Insights.MonitorCmdletBase.ExecuteCmdlet(), Code: Null, Status code:Null, Reason phrase: Null
+2026-09-09T15:18:56Z  INFO        needs: Microsoft.Insights/eventtypes/values/read - included in Reader
+2026-09-09T15:18:56Z  PASS  S3   Custom role definitions read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be)
+2026-09-09T15:18:56Z  FAIL  -    Management group 'mg-techcaqhorg-0001' readable - The client 'vgupta@tech.caqh.org' with object id '4b9f1c7f-4549-45de-9298-e1c7cf6e8cb6' does not have authorization to perform action 'Microsoft.Management/managementGroups/read' over scope '/providers/Microsoft.Management/managementGroups/mg-techcaqhorg-0001' or the scope is invalid. If access was recently granted, please refresh your credentials.
+2026-09-09T15:18:56Z  INFO        needs: Reader at the management group scope
+2026-09-09T15:18:56Z  INFO
+2026-09-09T15:18:56Z  STEP  6. Summary
+2026-09-09T15:18:56Z  INFO  Passed: 7   Failed: 10   Warned: 0   Skipped: 1
+2026-09-09T15:18:56Z  INFO  Report: C:\Users\VineetGupta\nexus-access-review\reviews\_auth-checks\auth-check_20260909T1516Z.json
+2026-09-09T15:18:56Z  INFO
+2026-09-09T15:18:56Z  FAIL  9 required probe(s) failed. Do not run the exporters yet.
+2026-09-09T15:18:56Z  INFO    - [-] Tenant read (organization)
+2026-09-09T15:18:56Z  INFO        needs: Directory.Read.All
+2026-09-09T15:18:56Z  INFO    - [S2] Directory audit logs
+2026-09-09T15:18:56Z  INFO        needs: AuditLog.Read.All  (Entra role: Reports Reader or Security Reader)
+2026-09-09T15:18:56Z  INFO    - [S4] PIM directory role assignment schedules
+2026-09-09T15:18:56Z  INFO        needs: RoleManagement.Read.Directory
+2026-09-09T15:18:56Z  INFO    - [S4] PIM directory role eligibility schedules
+2026-09-09T15:18:56Z  INFO        needs: RoleManagement.Read.Directory
+2026-09-09T15:18:56Z  INFO    - [S8] Groups read
+2026-09-09T15:18:56Z  INFO        needs: Directory.Read.All  or  Group.Read.All
+2026-09-09T15:18:56Z  INFO    - [S5] Service principals read
+2026-09-09T15:18:56Z  INFO        needs: Application.Read.All  or  Directory.Read.All
+2026-09-09T15:18:56Z  INFO    - [S5] OAuth2 permission grants
+2026-09-09T15:18:56Z  INFO        needs: Directory.Read.All
+2026-09-09T15:18:56Z  INFO    - [S1] Activity Log read (41ca41c2-39ad-493c-9f6c-f89aefb4b3be)
+2026-09-09T15:18:56Z  INFO        needs: Microsoft.Insights/eventtypes/values/read - included in Reader
+2026-09-09T15:18:56Z  INFO    - [-] Management group 'mg-techcaqhorg-0001' readable
+2026-09-09T15:18:56Z  INFO        needs: Reader at the management group scope
